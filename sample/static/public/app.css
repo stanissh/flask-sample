@@ -1,0 +1,48 @@
+html, body {
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	background-color: #eee;
+	font-family: verdana, arial;
+	font-size: 18px;
+	color: #333;
+}
+
+header {
+	background-color: #FFF9C4;
+	padding: 15px;
+	color: #000;
+}
+
+main {
+	width: 50%;
+	max-width: 750px;
+	margin: 0 auto;
+}
+
+h1, header {
+	text-align: center;
+	margin: 30px 0px;
+}
+
+label {
+	color: #245166;
+	font-weight: 600;
+	display: block;
+	margin-bottom: 5px;
+}
+
+select, option {
+	width: 100%;
+	padding: 7px;
+	font-size: 1.3rem;
+	background-color: #fff;
+}
+
+select {
+	margin-bottom: 25px;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}

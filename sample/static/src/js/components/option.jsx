@@ -50,8 +50,9 @@ class OptionComponent extends React.Component {
     }
 
     return (
-      <div>
-        <select onChange={this.handleSelect}>
+      <div className="option">
+        <label htmlFor={this.props.item.id}>{this.props.item.name}</label>
+        <select onChange={this.handleSelect} id={this.props.item.id}>
           <option></option>
           {this.props.item.definitions.map(item => (
             <option key={item.id} value={item.id}>{item.name}</option>

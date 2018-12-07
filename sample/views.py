@@ -33,10 +33,11 @@ def definitions(category, pid):
         filters["pid"] = pid
 
     items = get_db().definitions.find(filters)
-    data = {"name": None, "definitions": []}
+    data = {"id": None, "name": None, "definitions": []}
 
     for i in items:
-        if not data["name"]:
+        if not data["id"]:
+            data["id"] = i["tag"]
             data["name"] = cdata[i["tag"]]
         tmp = dict(id=str(i["_id"]), name=i["name"], cat=category)
         if i["desc"]:
