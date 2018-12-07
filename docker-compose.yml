@@ -1,0 +1,11 @@
+db:
+  image: mongo:3.4
+web:
+  build: .
+  ports:
+    - "5050:5000"
+  command: ./run.sh
+  environment:
+    DB: mongodb://db:27017/iskme
+  links:
+    - db
