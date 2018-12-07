@@ -2,20 +2,15 @@
 
 import click
 from flask.cli import with_appcontext
-from sample.utils import csv2tree
-from sample.database import get_db
+from .utils import csv2tree
+from .database import get_db
 
-@click.command()
-@click.argument('filename')
-@with_appcontext
-def load(filename):
-    """ load csv data by file name into database
-
-    Example: flask load data.csv
+def import_data(filename):
+    """ Load csv data by file name into database.
     """
 
     def save(data, category_id, pid=None):
-        """ Recursively save data as a tree in database
+        """ Recursively save data as a tree in database.
         """
 
         for name, val in data.items():
@@ -37,3 +32,15 @@ def load(filename):
     category = {"name": "Initial category", "data": data["header"]}
     category_id = get_db().categories.insert_one(category).inserted_id
     save(data["body"], category_id)
+
+
+@click.command()
+@click.argument("filename")
+@with_appcontext
+def load(filename):
+    """ Load csv data by file name into database.
+
+    Example: flask load data.csv.
+    """
+
+    import_data(filename)

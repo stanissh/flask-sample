@@ -1,16 +1,16 @@
-""" Application routes """
+""" Application routes. """
 
 from bson.objectid import ObjectId
 from bson.json_util import dumps
 from flask import Blueprint, jsonify, render_template
-from sample.database import get_db
-from sample.utils import csv2tree
+from .database import get_db
+from .utils import csv2tree
 
 blueprint = Blueprint('views', __name__)
 
 @blueprint.route("/")
 def index():
-    """ Index page
+    """ Index page.
     """
 
     cat = get_db().categories.find_one({})
@@ -20,7 +20,7 @@ def index():
 @blueprint.route('/v1/category/<category>', defaults={"pid": None})
 @blueprint.route('/v1/category/<category>/items/<pid>')
 def definitions(category, pid):
-    """ Shows definitions
+    """ Shows definitions.
     """
 
     # Category titles
@@ -48,7 +48,7 @@ def definitions(category, pid):
 
 @blueprint.route('/csv/<filename>')
 def show_csv(filename):
-    """ Shows csv as a tree
+    """ Shows csv as a tree.
     """
 
     data = csv2tree("data/%s.csv" % filename)

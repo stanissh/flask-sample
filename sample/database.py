@@ -1,10 +1,10 @@
-""" Application databse package """
+""" Application databse package. """
 
 from flask import current_app, g
 from flask_pymongo import PyMongo
 
 def get_db():
-    """ Get database instance
+    """ Get database instance.
     """
 
     if 'mongo' not in g:

@@ -1,10 +1,10 @@
-""" Helpers """
+""" Helpers. """
 
 import collections
 import csv
 
 def update_dict(orgdict, newdict):
-    """ Recursively update dictionary
+    """ Recursively update dictionary.
     """
 
     for key, val in newdict.items():
@@ -16,14 +16,14 @@ def update_dict(orgdict, newdict):
     return orgdict
 
 def csv2tree(filepath):
-    """ load csv data by file name into database
+    """ load csv data by file name into database.
     """
 
     resource = open(filepath, newline='')
     reader = csv.reader(resource)
 
     def create_dict(row, titles: list, pos=0):
-        """ Creates tree by input list recursively
+        """ Creates tree by input list recursively.
         """
 
         data = {}
