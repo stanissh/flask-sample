@@ -6,7 +6,10 @@ from .utils import csv2tree
 from .database import get_db
 
 def import_data(filename):
-    """Load csv data by file name into database.
+    """Load csv data into database as as tree with arbitrary number of nodes.
+
+    Each unique column of every cvs row is a node.
+    Last column of each row is a list.
     """
 
     def save(data, category_id, pid=None):
