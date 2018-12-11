@@ -1,4 +1,4 @@
-""" Main application package """
+"""Primary application package."""
 
 import os
 from flask import Flask
@@ -9,8 +9,7 @@ from .commands import load
 load_dotenv()
 
 def create_app(config=None):
-    """ Application factory
-    """
+    """Application factory."""
 
     app = Flask(__name__, instance_relative_config=True)
     app.static_folder += "/public"

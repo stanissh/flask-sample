@@ -1,4 +1,4 @@
-""" Application routes. """
+"""Application routes."""
 
 from bson.objectid import ObjectId
 from bson.json_util import dumps
@@ -10,7 +10,7 @@ blueprint = Blueprint('views', __name__)
 
 @blueprint.route("/")
 def index():
-    """ Index page.
+    """Index page.
     """
 
     cat = get_db().categories.find_one({})
@@ -20,7 +20,7 @@ def index():
 @blueprint.route('/v1/category/<category>', defaults={"pid": None})
 @blueprint.route('/v1/category/<category>/items/<pid>')
 def definitions(category, pid):
-    """ Shows definitions.
+    """Show definitions.
     """
 
     # Category titles
@@ -35,6 +35,7 @@ def definitions(category, pid):
     items = get_db().definitions.find(filters)
     data = {"id": None, "name": None, "definitions": []}
 
+    # Build tree for representation in view
     for i in items:
         if not data["id"]:
             data["id"] = i["tag"]
@@ -48,7 +49,7 @@ def definitions(category, pid):
 
 @blueprint.route('/csv/<filename>')
 def show_csv(filename):
-    """ Shows csv as a tree.
+    """Show csv as a tree.
     """
 
     data = csv2tree("data/%s.csv" % filename)

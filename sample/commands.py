@@ -1,4 +1,4 @@
-""" Console commands """
+"""Console commands."""
 
 import click
 from flask.cli import with_appcontext
@@ -6,11 +6,11 @@ from .utils import csv2tree
 from .database import get_db
 
 def import_data(filename):
-    """ Load csv data by file name into database.
+    """Load csv data by file name into database.
     """
 
     def save(data, category_id, pid=None):
-        """ Recursively save data as a tree in database.
+        """Recursively save data as a tree in database.
         """
 
         for name, val in data.items():
