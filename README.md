@@ -8,24 +8,35 @@ Tools:
 
 ## Installation:
 
-Docker:
+Create .env file with configuration options:
 
-	$ docker-compose up
+```bash
+DB=mongodb://{MONGO_HOST}/{DATABASE_NAME}
+DB_TEST=mongodb://{MONGO_HOST}/{TEST_DATABASE_NAME}
+````
 
-Pip:
+Install dependencies:
 
 	$ pip install -e .
 
-Pipenv
+Or using Pipenv:
 
 	$ pipenv install
 
 ## Run
 
-Load data from csv into database
+Load data from csv into database:
 
 	$ flask load data.csv
 
-Run server
+Run server:
 
 	$ flask run
+
+## Docker
+
+Simply run:
+
+	$ docker-compose up
+
+	
